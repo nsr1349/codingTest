@@ -1,19 +1,23 @@
-function solution(p, speeds) {
-  let answer = [],
-      len = p.length, 
-      진척도 = 0
-  
-  while (진척도 < len){
-      if (p[진척도] >= 100){
-          let cnt = 0
-          while (p[진척도] >= 100){
-              cnt ++
-              진척도 ++ 
-          }
-          answer.push(cnt)
-      }
-      for (let i = 0; i < len; i++) p[i] = p[i] + speeds[i]
-  }
-  
-  return answer
+function solution(작업현황, 속도) {
+    let 답 = [],
+        길이 = 작업현황.length, 
+        맨앞 = 0
+    // 개발진행
+    while (맨앞 < 길이){ 
+        // 현재 가장 앞에 있는 기능이 100%라면
+        if (작업현황[맨앞] >= 100){
+            let 연속배포 = 0
+            // 연속배포 얼마나 가능한지 세고 맨앞 올려줌
+            while (작업현황[맨앞] >= 100){
+                연속배포 ++
+                맨앞 ++ 
+            }
+            // 센거 답에 추가
+            답.push(연속배포)
+        }
+        // 작업속도만큼 작업량에 한 번 올려줌
+        for (let i = 0; i < 길이; i++) 작업현황[i] = 작업현황[i] + 속도[i]
+    }
+
+    return 답
 }
