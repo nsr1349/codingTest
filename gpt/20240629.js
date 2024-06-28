@@ -55,6 +55,13 @@ console.log(findUnique([2, 1, 1, 3, 2, 4, 5, 5, 4])); // 3
 
 function firstUniqueChar(s) {
     // 여기에 코드를 작성하세요.
+    const obj = {}
+    for (const a of s) obj[a] = obj[a] ? obj[a] + 1 : 1
+    console.log(obj)
+    for (const a of Object.entries(obj)){
+        if (a[1] === 1) return a[0]
+    }
+    return
 }
 
 // 예시 실행
