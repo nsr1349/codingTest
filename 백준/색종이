@@ -1,0 +1,30 @@
+const input = require('fs').readFileSync(0, 'utf-8').toString().trim().split("\n");
+
+input.shift()
+
+const lefts = [], bottoms = [], map = [] 
+const arr = input.map(a=> a.split(' ').map((a,i)=>{
+    const value = +a
+    i === 0 ? lefts.push(value) : bottoms.push(value)
+    return value
+}))
+let maxLefts =  Math.max(...lefts) + 11, 
+    maxBottoms = Math.max(...bottoms) + 11,
+    answer = 0
+for (let i = 0 ; i < maxLefts; i ++) 
+    map.push(Array(maxBottoms).fill(0))
+
+for (const [x,y] of arr){
+    for (let i = x; i < x + 10; i++){
+        for (let j = y; j < y + 10; j++){
+            map[i][j] = 1
+        }
+    }
+}
+
+for (let i = 0; i < map.length; i++){
+    for (let j = 0; j < map[0].length; j++){
+        answer += map[i][j]
+    }
+}
+console.log(answer)
