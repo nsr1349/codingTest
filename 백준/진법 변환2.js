@@ -1,15 +1,17 @@
-const [n ,b] = require('fs').readFileSync(0, 'utf-8').toString().trim().split(" ");
+// const [n ,b] = require('fs').readFileSync(0, 'utf-8').toString().trim().split(" ");
+const [n ,b] = ['60466175','36']
+const numList = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+let B = +b, 
+    N = +n, 
+    t = 1, 
+    answer = ''
 
-const B = +b
-let N = +n, temp = 1, answer = ''
+while (t <= N) t *= B
 
-while (temp < N) temp *= B
-
-while (temp !== 1) {
-    temp /= B
-    const a = Math.floor(N / temp) 
-    answer += a > 9 ? String.fromCharCode( a+55 ) : a
-    N = N % temp
+while (t !== 1) {
+    t /= B
+    answer += numList[Math.floor(N / t) ]
+    N = N % t
 }
 
-console.log(answer)
+console.log(answer) 
