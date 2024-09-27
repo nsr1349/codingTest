@@ -1,9 +1,7 @@
-const input = +require('fs').readFileSync(0, 'utf-8').toString().trim() + 1
+const n = +require('fs').readFileSync(0, 'utf-8').toString().trim()
 
-let answer = 4, 면 = 2
-for (let i = 1; i < input; i++) {
-    answer = answer * 4 - ((면)*4-1)
+let 면 = 3
+for (let i = 2; i <= n; i++) 
     면 = 면*2-1
-}
 
-console.log(answer)
+console.log(면**2)
