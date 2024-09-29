@@ -4,4 +4,6 @@ const arr = []
 for(let i = 1 ; i < N + 1; i++)
     if (N % i === 0) arr.push(N/i)
 
-console.log(arr.sort((a, b) => a-b)[K-1] || 0)
+console.log(arr[arr.length - K] || 0)
+
+
