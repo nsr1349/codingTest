@@ -1,3 +1,4 @@
+// 소인수 분해
 const input = require('fs').readFileSync(0, 'utf-8').toString().trim();
 let N = +input, 소인수 = 0
 
