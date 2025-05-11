@@ -2,14 +2,11 @@ const realTime = (time) => (Math.floor(time / 100) * 60) + time % 100
 
 const solution = (schedules, timelogs, startday) => {
     return timelogs.filter((timelog, i)=> {
-        let promiseTime = realTime(schedules[i]) + 10
-        return timelog.every((time, day) => 
-            (day + startday - 1) % 7 + 1 > 5 ? true : promiseTime >= realTime(time)) 
+        let sTime = realTime(schedules[i]) + 10
+        return timelog.every((t, d) => 
+            (d + startday - 1) % 7 + 1 > 5 || sTime >= realTime(t)) 
     }).length
 }
-
-
-
 
 
 console.log(solution2([700, 800, 1100],[[710, 2359, 1050, 700, 650, 631, 659], [800, 801, 805, 800, 759, 810, 809], [1105, 1001, 1002, 600, 1059, 1001, 1100]],5))
